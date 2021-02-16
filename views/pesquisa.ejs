@@ -1,10 +1,52 @@
 <%- include('includes/head.ejs') %>
     <link rel="stylesheet" href="/css/contact.css">
-</head>
+    </head>
 
-<body>
-    <%- include('includes/headerbar.ejs') %>
+    <body>
+        <%- include('includes/headerbar.ejs') %>
 
-    <main>
-    </main>
-<%- include('includes/end.ejs') %>
+            <main>
+                <form class="contact-form" action="/" method="POST">
+                    <div class="form-control">
+                        <label for="title">Pesquisar contato:</label>
+                        <input type="text" name="txtsearch" id="txtsearch">
+                        <button class="btn" name="serchbtn" formaction="/search" type="submit">Pesquisar</button>
+                    </div>
+
+
+                    <div class="content">
+                        <table class="rTable" id="contact__table">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Nome</th>
+                                    <th>Idade</th>
+                                    <th>Número</th>
+                                </tr>
+                            </thead>
+                            <% if (contact_list.length > 0) { %>
+                            <tbody>
+                           
+                                <% for (let current_contact of contact_list) { %>
+                                <tr>
+                                    <td><%= current_contact.ID %></td>
+                                    <td><%= current_contact.NOME %></td>
+                                    <td><%= current_contact.IDADE %></td>
+                                    <td><%= current_contact.NUMERO %></td>
+                                </tr>
+                                
+                                <% } %>
+
+                            </tbody>
+                            <% } %>
+                        </table>
+
+                        <div class="form-control-search">
+                            <button class="btn" id="btneditar" name="btneditaconta" formaction="/edit" type="submit">Editar contato</button>
+                            <button class="btn" id="btnexcluir" name="btnexcluir" formaction="/delete" type="submit">Excluir contato</button>
+                        </div>
+                </form>
+            </main>
+
+            <script type="text/javascript" src="/scripts/pesquisa.js"></script>
+            <%- include('includes/end.ejs') %>

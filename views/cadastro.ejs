@@ -7,10 +7,20 @@
    <%- include('includes/headerbar.ejs') %>
 
     <main>
-        <form class="product-form" action="/cadastro" method="POST">
+        <form class="contact-form" action="/cadastro" method="POST">
             <div class="form-control">
                 <label for="title">Nome do contato</label>
-                <input type="text" name="title" id="title">
+                <input type="text" name="txtnome" id="txtnome">
+            </div>
+
+            <div class="form-control">
+                <label for="title">Idade</label>
+                <input type="text" name="txtidade" id="txtidade">
+            </div>
+
+            <div class="form-control">
+                <label for="title">Número</label>
+                <input type="text" name="txtnumero" id="txtnumero">
             </div>
 
             <button class="btn" type="submit">Adicionar Contato</button>
