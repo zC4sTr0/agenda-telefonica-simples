@@ -11,6 +11,5 @@ exports.getAddContact = (req, res, next) => {
 
 exports.postAddContact = (req, res, next) => {
     const contact = new Contato(req.body.txtnome, req.body.txtidade, req.body.txtnumero);
-    contact.save(res).finally(() => res.redirect('/'));
-    
+    contact.save().finally(() => res.redirect('/'));
 };

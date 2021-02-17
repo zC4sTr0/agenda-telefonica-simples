@@ -6,11 +6,11 @@
         <%- include('includes/headerbar.ejs') %>
 
             <main>
-                <form class="contact-form" action="/" method="POST">
+                <form class="contact-form" action="/search" method="POST">
                     <div class="form-control">
                         <label for="title">Pesquisar contato:</label>
                         <input type="text" name="txtsearch" id="txtsearch">
-                        <button class="btn" name="serchbtn" formaction="/search" type="submit">Pesquisar</button>
+                        <button class="btn" name="serchbtn" id="btnpesquisar" type="submit">Pesquisar</button>
                     </div>
 
 
@@ -41,12 +41,15 @@
                             <% } %>
                         </table>
 
-                        <div class="form-control-search">
-                            <button class="btn" id="btneditar" name="btneditaconta" formaction="/edit" type="submit">Editar contato</button>
-                            <button class="btn" id="btnexcluir" name="btnexcluir" formaction="/delete" type="submit">Excluir contato</button>
-                        </div>
+
                 </form>
+                <div class="form-control-search">
+                    <button class="btn" id="btneditar" name="btneditaconta" type="button">Editar contato</button>
+                    <button class="btn" id="btnexcluir" name="btnexcluir" type="button">Excluir contato</button>
+                </div>
+
             </main>
 
             <script type="text/javascript" src="/scripts/pesquisa.js"></script>
+           
             <%- include('includes/end.ejs') %>
