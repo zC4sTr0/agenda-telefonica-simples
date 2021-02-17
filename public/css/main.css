@@ -36,7 +36,7 @@ main {
 }
 
 .main-header__item {
-  margin: 0 1rem;
+  margin: 0 1.3rem;
   padding: 0;
 }
 
@@ -44,6 +44,17 @@ main {
   text-decoration: none;
   color: white;
 }
+
+h1 { 
+  color: #111; 
+  font-family: 'Open Sans', sans-serif; 
+  font-size: 30px; 
+  font-weight: 300; 
+  line-height: 30px; 
+  margin: 0 0 40px; 
+  text-align: center; 
+}
+
 
 .main-header__item a:hover,
 .main-header__item a:active,
@@ -106,3 +117,5 @@ main {
   background-color: #00695c;
   color: white;
 }
+
+

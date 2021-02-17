@@ -9,7 +9,7 @@
                 <form class="contact-form" action="/search" method="POST">
                     <div class="form-control">
                         <label for="title">Pesquisar contato:</label>
-                        <input type="text" name="txtsearch" id="txtsearch">
+                        <input type="text" name="txtsearch" id="txtsearch" autofocus>
                         <button class="btn" name="serchbtn" id="btnpesquisar" type="submit">Pesquisar</button>
                     </div>
 
@@ -21,7 +21,7 @@
                                     <th>Id</th>
                                     <th>Nome</th>
                                     <th>Idade</th>
-                                    <th>Número</th>
+                                    <th>Telefone</th>
                                 </tr>
                             </thead>
                             <% if (contact_list.length > 0) { %>
@@ -44,7 +44,7 @@
 
                 </form>
                 <div class="form-control-search">
-                    <button class="btn" id="btneditar" name="btneditaconta" type="button">Editar contato</button>
+                    <button class="btn" id="btneditar" name="btneditar" type="button">Editar contato</button>
                     <button class="btn" id="btnexcluir" name="btnexcluir" type="button">Excluir contato</button>
                 </div>
 

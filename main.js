@@ -28,12 +28,14 @@ app.set('views', 'views');
 
 const cadastroRoutes = require('./routes/cadastro');
 const pesquisaRoutes = require('./routes/pesquisa');
+const editarRoutes = require('./routes/editar');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cadastroRoutes);
 app.use(pesquisaRoutes);
+app.use(editarRoutes);
 
 app.use(pageNotFoundController.get404);
 

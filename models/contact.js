@@ -22,9 +22,19 @@ module.exports = class Contact {
     }
 
     static deleteContact(id) {
-       return db.execute('DELETE from telefone WHERE IDCONTATO = ?', [id]).then(([rows, fieldData]) => {
-             db.execute('DELETE FROM contato WHERE ID = ?', [id]).then().catch((err) => console.log(err));
+        return db.execute('DELETE from telefone WHERE IDCONTATO = ?', [id]).then(([rows, fieldData]) => {
+            db.execute('DELETE FROM contato WHERE ID = ?', [id]).then().catch((err) => console.log(err));
         }).catch((err) => console.log(err));
+    }
+
+    static editContact(id, nome, idade, numero) {
+        return db.execute('UPDATE telefone SET NUMERO = ? WHERE ID = ?', [numero, id]).then(([rows, fieldData]) => {
+            db.execute('UPDATE contato SET NOME = ?, IDADE = ? WHERE ID = ?', [nome, idade, id]).then().catch((err) => console.log(err));
+        }).catch((err) => console.log(err));
+    }
+
+    static getSingleContactData(id){
+        return db.execute('SELECT a.ID, a.NOME, a.IDADE, b.NUMERO from contato AS a INNER JOIN telefone as b on a.ID = b.IDCONTATO WHERE a.ID = ?', [id]);
     }
 
     static findContact(nome) {
