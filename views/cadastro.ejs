@@ -1,33 +1,37 @@
 <%- include('includes/head.ejs') %>
     <link rel="stylesheet" href="/css/forms.css">
     <link rel="stylesheet" href="/css/contact.css">
-</head>
+    </head>
 
-<body>
-   <%- include('includes/headerbar.ejs') %>
+    <body>
+        <%- include('includes/headerbar.ejs') %>
 
-    <main>
-        <center><h1>Cadastrar Contato</h1></center>
+            <main>
+                <center>
+                    <h1>Cadastrar Contato</h1>
+                </center>
 
-        
-        <form class="contact-form" action="/cadastro" method="POST">
-            <div class="form-control">
-                <label for="title">Nome do contato</label>
-                <input type="text" name="txtnome" id="txtnome" autofocus required>
-            </div>
 
-            <div class="form-control">
-                <label for="title">Idade</label>
-                <input type="text" name="txtidade" id="txtidade" pattern="[0-9]{1,3}" title="Por favor forneça uma idade válida" required>
-            </div>
+                <form class="contact-form" action="/cadastro" method="POST">
+                    <div class="form-control">
+                        <label for="title">Nome do contato</label>
+                        <input type="text" name="txtnome" id="txtnome" autofocus required>
+                    </div>
 
-            <div class="form-control">
-                <label for="title">Número</label>
-                <input type="tel" name="txtnumero"  pattern="[0-9]{8,11}" id="txtnumero" title="Por favor forneça um número de telefone válido." required>
+                    <div class="form-control">
+                        <label for="title">Idade</label>
+                        <input type="text" name="txtidade" id="txtidade" pattern="[0-9]{1,3}"
+                            title="Por favor forneça uma idade válida" required>
+                    </div>
 
-            </div>
+                    <div class="form-control">
+                        <label for="title">Número</label>
+                        <input type="tel" name="txtnumero" pattern="[0-9]{8,11}" id="txtnumero"
+                            title="Por favor forneça um número de telefone válido." required>
 
-            <button class="btn" type="submit">Adicionar Contato</button>
-        </form>
-    </main>
-<%- include('includes/end.ejs') %>
+                    </div>
+
+                    <button class="btn" type="submit">Adicionar Contato</button>
+                </form>
+            </main>
+            <%- include('includes/end.ejs') %>

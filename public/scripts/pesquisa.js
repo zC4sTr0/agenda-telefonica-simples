@@ -31,7 +31,7 @@ btnEditar.addEventListener("click", () => {
     var selecionado = selecionados[0];
     selecionado = selecionado.getElementsByTagName("td");
 
-    window.location.replace("/editar?contactID="+selecionado[0].innerHTML);
+    window.location.replace("/editar?contactID=" + selecionado[0].innerHTML);
 
 });
 
@@ -49,28 +49,29 @@ btnExcluir.addEventListener("click", function () {
 
     }
 
+    if (confirm("Tem certeza que deseja excluir este contato?")) {
+        var dados = "";
+        var selecionado = selecionados[0];
+        selecionado = selecionado.getElementsByTagName("td");
 
-    var dados = "";
-    var selecionado = selecionados[0];
-    selecionado = selecionado.getElementsByTagName("td");
+        var http = new XMLHttpRequest();
+        http.open('POST', '/delete');
+        http.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        http.onreadystatechange = function () {
+            if (http.readyState === XMLHttpRequest.DONE && (http.status === 201 || http.status === 200)) {
+                var http_post_response = JSON.parse(http.responseText);
 
-    var http = new XMLHttpRequest();
-    http.open('POST', '/delete');
-    http.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    http.onreadystatechange = function () {
-        if (http.readyState === XMLHttpRequest.DONE && (http.status === 201 || http.status === 200)) {
-            var http_post_response = JSON.parse(http.responseText);
+                if (http_post_response.result == 'redirect') {
+                    window.location.replace(http_post_response.url);
+                }
 
-            if (http_post_response.result == 'redirect') {
-                window.location.replace(http_post_response.url);
+            } else if (http.readyState === XMLHttpRequest.DONE && !(http.status === 201 || http.status === 200)) {
+                console.log('Erro ao enviar requisição de exclusão. ' + 'codigo de erro: ' + http.status);
             }
 
-        } else if (http.readyState === XMLHttpRequest.DONE && !(http.status === 201 || http.status === 200)) {
-            console.log('Erro ao enviar requisição de exclusão. ' + 'codigo de erro: ' + http.status);
-        }
-
-    };
-    var data = 'contactID=' + selecionado[0].innerHTML;
-    http.send(data);
+        };
+        var data = 'contactID=' + selecionado[0].innerHTML+'&contactNOME='+selecionado[1].innerHTML+'&contactIDADE='+selecionado[2].innerHTML+'&contactTELEFONE='+selecionado[3].innerHTML;
+        http.send(data);
+    }
 
 });

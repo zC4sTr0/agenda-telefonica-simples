@@ -33,7 +33,7 @@ module.exports = class Contact {
         }).catch((err) => console.log(err));
     }
 
-    static getSingleContactData(id){
+    static getSingleContactData(id) {
         return db.execute('SELECT a.ID, a.NOME, a.IDADE, b.NUMERO from contato AS a INNER JOIN telefone as b on a.ID = b.IDCONTATO WHERE a.ID = ?', [id]);
     }
 

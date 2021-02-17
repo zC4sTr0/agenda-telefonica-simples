@@ -2,7 +2,7 @@ const Contato = require('../models/contact');
 
 
 
-exports.getEditar= (req, res, next) => {
+exports.getEditar = (req, res, next) => {
     Contato.getSingleContactData(req.query.contactID).then(([rows, fieldData]) => {
         res.render('editar', {
             pageTitle: 'Editar contato',
